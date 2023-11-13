@@ -19,7 +19,7 @@ public class Publisher {
     private String county;
     private String postCode;
 
-    @OneToMany(mappedBy = "publishers")
+    @OneToMany(mappedBy = "publisher")
     private Set<Book> books = new HashSet<>();
 
     public Publisher() {
@@ -123,7 +123,6 @@ public class Publisher {
                 ", city='" + city + '\'' +
                 ", county='" + county + '\'' +
                 ", postCode='" + postCode + '\'' +
-                ", books=" + books +
                 '}';
     }
 }

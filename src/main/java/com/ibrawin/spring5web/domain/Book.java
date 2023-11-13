@@ -22,7 +22,7 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "publisher_id")
-    private Publisher publishers;
+    private Publisher publisher;
 
     public Book() {
     }
@@ -64,12 +64,12 @@ public class Book {
         this.authors = authors;
     }
 
-    public Publisher getPublishers() {
-        return publishers;
+    public Publisher getPublisher() {
+        return publisher;
     }
 
-    public void setPublishers(Publisher publishers) {
-        this.publishers = publishers;
+    public void setPublishers(Publisher publisher) {
+        this.publisher = publisher;
     }
 
     @Override
@@ -93,7 +93,6 @@ public class Book {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", authors=" + authors +
                 '}';
     }
 }
