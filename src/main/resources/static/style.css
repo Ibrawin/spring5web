@@ -1,0 +1,31 @@
+body {
+    background-color: aliceblue;
+}
+
+table {
+    border: solid 2px black;
+    flex: 1 1 200px;
+    max-width: 500px;
+    max-height: 100px;
+    /*flex-basis: 200px;*/
+    background-color: palevioletred;
+}
+
+table * {
+    border: solid 1px black;
+    min-width: 100px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}

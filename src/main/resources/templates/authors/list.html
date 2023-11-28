@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>List of Authors</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<h1>List of authors</h1>
-
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-  </tr>
-  <tr th:each="author : ${authors}">
-    <td th:text="${author.id}">ID</td>
-    <td th:text="${author.firstName + ' ' + author.lastName}">Name</td>
-  </tr>
-</table>
+<div class="flex-container">
+  <h1>List of authors</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+    <tr th:each="author : ${authors}">
+      <td th:text="${author.id}">ID</td>
+      <td th:text="${author.firstName + ' ' + author.lastName}">Name</td>
+    </tr>
+  </table>
+</div>
 
 </body>
 </html>
