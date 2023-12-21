@@ -27,31 +27,31 @@ public class BootstrapData implements CommandLineRunner {
         Publisher tobi = new Publisher("Tobi", "Ayan", "123 road", "London", "Greater London", "SE5 1AA");
         Author ibrahim = new Author("Ibra", "Ayan");
         Book livingLegend = new Book("Living legend", "123");
-
-        ibrahim.getBooks().add(livingLegend);
-        livingLegend.getAuthors().add(ibrahim);
-        livingLegend.setPublishers(tobi);
-        tobi.getBooks().add(livingLegend);
-
-        authorRepository.save(ibrahim);
-        publisherRepository.save(tobi);
-        bookRepository.save(livingLegend);
+        addEntities(ibrahim, livingLegend, tobi);
+        saveEntities(ibrahim, livingLegend, tobi);
 
         Author wale = new Author("Wale", "Ayan");
         Book ceo = new Book("CEO", "456");
-
-        wale.getBooks().add(ceo);
-        ceo.getAuthors().add(wale);
-        ceo.setPublishers(tobi);
-        tobi.getBooks().add(ceo);
-
-        authorRepository.save(wale);
-        bookRepository.save(ceo);
-        publisherRepository.save(tobi);
+        addEntities(wale, ceo, tobi);
+        saveEntities(wale, ceo, tobi);
 
         System.out.printf("The number of authors are: %d%n", authorRepository.count());
         System.out.printf("The number of books are: %d%n", bookRepository.count());
         System.out.printf("The number of publishers are: %d%n", publisherRepository.count());
         System.out.printf("The number of Tobis are: %d%n", tobi.getBooks().size());
     }
+
+    private void addEntities(Author author, Book book, Publisher publisher) {
+        author.getBooks().add(book);
+        book.getAuthors().add(author);
+        book.setPublishers(publisher);
+        publisher.getBooks().add(book);
+    }
+
+    private void saveEntities(Author author, Book book, Publisher publisher) {
+        authorRepository.save(author);
+        publisherRepository.save(publisher);
+        bookRepository.save(book);
+    }
+
 }
